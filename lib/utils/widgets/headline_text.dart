@@ -4,40 +4,49 @@ class TextHeadlineLarge extends StatelessWidget {
   const TextHeadlineLarge({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.fontWeight,
+    this.textAlign,
   });
   final Color? color;
   final TextAlign? textAlign;
   final String text;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: textAlign,
-      style: Theme.of(context).textTheme.headlineLarge,
-    );
+    return Text(text,
+        textAlign: textAlign,
+        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+              fontWeight: fontWeight,
+              color: color,
+            ));
   }
 }
 
+// ignore: must_be_immutable
 class TextHeadlineMedium extends StatelessWidget {
-  const TextHeadlineMedium({
+  TextHeadlineMedium({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.fontWeight,
+    this.color,
+    this.textAlign,
   });
-  final Color color;
+  final Color? color;
   final String text;
-  final TextAlign textAlign;
+  final FontWeight? fontWeight;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.headlineMedium,
+      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            fontWeight: fontWeight,
+            color: color,
+          ),
     );
   }
 }
@@ -46,15 +55,15 @@ class TextHeadlineSmall extends StatelessWidget {
   const TextHeadlineSmall({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.textAlign,
     this.fontWeight,
     this.fontSize,
   });
 
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
   final String text;
-  final Color color;
+  final Color? color;
   final FontWeight? fontWeight;
   final double? fontSize;
 

@@ -4,19 +4,24 @@ class TextLabelLarge extends StatelessWidget {
   const TextLabelLarge({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.fontWeight,
+    this.textAlign,
   });
-  final Color color;
+  final Color? color;
   final String text;
-  final TextAlign textAlign;
+  final FontWeight? fontWeight;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.labelLarge,
+      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+            color: color,
+            fontWeight: fontWeight,
+          ),
     );
   }
 }
@@ -25,19 +30,25 @@ class TextLabelMedium extends StatelessWidget {
   const TextLabelMedium({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.fontWeight,
+    this.textAlign,
   });
-  final Color color;
+  final Color? color;
   final String text;
-  final TextAlign textAlign;
+  final FontWeight? fontWeight;
+
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.labelMedium,
+      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+            color: color,
+            fontWeight: fontWeight,
+          ),
     );
   }
 }
@@ -46,19 +57,25 @@ class TextLabelSmall extends StatelessWidget {
   const TextLabelSmall({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.fontWeight,
+    this.textAlign,
   });
-  final Color color;
+  final Color? color;
   final String text;
-  final TextAlign textAlign;
+  final FontWeight? fontWeight;
+
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.labelSmall,
+      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+            color: color,
+            fontWeight: fontWeight,
+          ),
     );
   }
 }

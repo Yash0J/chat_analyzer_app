@@ -1,6 +1,8 @@
-import 'package:chat_analyzer_app/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'utils/constants/color.dart';
+import 'views/home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Appcolor.quaternary,
       body: Center(
         child: SvgPicture.asset(
           'assets/icons/chat-wing-logo.svg',

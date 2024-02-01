@@ -1,12 +1,13 @@
-import 'package:chat_analyzer_app/utils/widgets/body_text.dart';
-import 'package:chat_analyzer_app/views/home/importing_steps.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:file_picker/file_picker.dart';
 
+import '../../utils/constants/color.dart';
 import '../../utils/widgets/button.dart';
-import '../../utils/widgets/description_text.dart';
+import '../../utils/widgets/display_text.dart';
 import '../../utils/widgets/title_text.dart';
+import '../result/result_screen.dart';
+import 'importing_steps.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,6 +31,9 @@ class _HomePageState extends State<HomePage> {
           _filePath = result.files.single.path;
         });
       }
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Result()));
     } catch (e) {
       print('Error picking file: $e');
     }
@@ -37,66 +41,76 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text("Chat Analyzer"),
-        ),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                SizedBox(height: 4.h),
-                DefaultButton(
-                  onTap: () {
-                    _openFilePicker();
-                    // Navigator.pushReplacement(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => const Result()));
-                  },
-                  child: const TextTitleMedium(text: "Import Text file"),
+        // appBar: AppBar(
+        //   title: TextHeadlineLarge(
+        //     text: "Chat Analyzer",
+        //     color: Appcolor.white,
+        //   ),
+        //   // backgroundColor: Appcolor.primary,
+        // ),
+        body: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                height: 40.h,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Appcolor.primary,
+                      // spreadRadius: 0.5,
+                      blurRadius: 7,
+                    ),
+                  ],
+                  gradient: LinearGradient(colors: [
+                    Appcolor.primary,
+                    Appcolor.secondry,
+                  ]),
+                  borderRadius:
+                      const BorderRadius.vertical(bottom: Radius.circular(23)),
                 ),
-                //
-                SizedBox(height: 4.h),
-                if (_filePath != null)
-                  TextDescriptionSmall(text: 'Selected File: $_filePath'),
-                //
-                const ImportingStepsText()
-              ],
+              ),
             ),
-          ),
+            SafeArea(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 13.h,
+                        child: Center(
+                          child: TextDisplaySmall(
+                            text: "Chat Analyzer App",
+                            color: Appcolor.white,
+                          ),
+                        ),
+                      ),
+
+                      DefaultButton(
+                          onTap: () {
+                            _openFilePicker();
+                          },
+                          height: 20.h,
+                          width: 92.w,
+                          color: Appcolor.transparentWhite,
+                          child: TextTitleLarge(
+                            text: "Tap here to import file",
+                            color: Appcolor.white,
+                          )),
+                      //
+                      SizedBox(height: 4.h),
+                      //
+                      // if (_filePath != null)
+                      //   TextDescriptionSmall(text: 'Selected File: $_filePath'),
+                      //
+                      const ImportingStepsText(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       );
-
-  // Widget importingStepsText() {
-  //   return SizedBox(
-  //     width: 90.w,
-  //     child: Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         SizedBox(height: 16),
-  //         TextTitleSmall(text: '1. Import Text File'),
-  //         Padding(
-  //             padding: const EdgeInsets.only(left: 12),
-  //             child: TextBodyMedium(
-  //                 text:
-  //                     ' Tap on the "Import Text file" button on the Home Screen. This action will open the file picker dialog.')),
-  //         SizedBox(height: 8),
-  //         TextTitleSmall(text: '2. Import Text File'),
-  //         Padding(
-  //             padding: const EdgeInsets.only(left: 12),
-  //             child: TextBodyMedium(
-  //                 text:
-  //                     ' Tap on the "Import Text file" button on the Home Screen. This action will open the file picker dialog.')),
-  //       ],
-  //     ),
-  //   );
-  // }
 }
-// Import Text File:
-
-//     Tap on the "Import Text file" button on the Home Screen. This action will open the file picker dialog.
-
-// Select Text File:
-
-//     In the file picker dialog, browse through your device's storage to locate and select the text file containing the chat data you want to analyze. Only files with the ".txt" extension will be visible for selection due to the specified allowed extension in the code.

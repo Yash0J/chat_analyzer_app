@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'splash_screen.dart';
-import 'utils/color.dart';
+import 'utils/constants/color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,16 +19,15 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             appBarTheme: AppBarTheme(
               backgroundColor: Appcolor.primary,
-              surfaceTintColor: Colors.transparent,
-              shadowColor: Appcolor.tertiory.withOpacity(0.7),
-              elevation: 5,
+              shadowColor: Appcolor.quaternary,
+              elevation: 3,
               centerTitle: true,
             ),
-            primaryColor: Appcolor.primary, // Example primary color
-            hintColor: Appcolor.tertiory, // Example secondary color
+            primaryColor: Appcolor.primary,
+            hintColor: Appcolor.quaternary,
+
             scaffoldBackgroundColor:
                 Appcolor.background, // Example background color
-            // Set background color
           ),
           home: const SplashScreen(),
         );

@@ -4,19 +4,25 @@ class TextTitleLarge extends StatelessWidget {
   const TextTitleLarge({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.textAlign,
+    this.fontWeight,
   });
-  final Color color;
   final String text;
-  final TextAlign textAlign;
+  final Color? color;
+  final TextAlign? textAlign;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.titleLarge,
+      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            overflow: TextOverflow.ellipsis,
+            fontWeight: fontWeight,
+            color: color,
+          ),
     );
   }
 }
@@ -25,19 +31,25 @@ class TextTitleMedium extends StatelessWidget {
   const TextTitleMedium({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.textAlign,
+    this.fontWeight,
   });
-  final Color color;
   final String text;
-  final TextAlign textAlign;
+  final Color? color;
+  final TextAlign? textAlign;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.titleMedium,
+      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            overflow: TextOverflow.ellipsis,
+            fontWeight: fontWeight,
+            color: color,
+          ),
     );
   }
 }
@@ -46,19 +58,25 @@ class TextTitleSmall extends StatelessWidget {
   const TextTitleSmall({
     super.key,
     required this.text,
-    this.color = Colors.black,
-    this.textAlign = TextAlign.left,
+    this.color,
+    this.textAlign,
+    this.fontWeight,
   });
-  final Color color;
   final String text;
-  final TextAlign textAlign;
+  final Color? color;
+  final FontWeight? fontWeight;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: Theme.of(context).textTheme.titleSmall,
+      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            overflow: TextOverflow.ellipsis,
+            fontWeight: fontWeight,
+            color: color,
+          ),
     );
   }
 }
