@@ -40,6 +40,7 @@ dependencies:
   responsive_sizer: ^3.3.0+1
   flutter_svg: ^2.0.9
   fl_chart: ^0.66.1
+  syncfusion_flutter_charts: ^24.2.3
   
 
 dev_dependencies:

@@ -45,17 +45,17 @@ class InfoTabbarView extends StatelessWidget {
             TextSpan(
                 text: "Sia ",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Appcolor.navy, fontWeight: FontWeight.w700)),
+                    color: Appcolor.primary, fontWeight: FontWeight.w700)),
             const TextSpan(text: "since "),
             TextSpan(
                 text: "2018 ",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Appcolor.navy, fontWeight: FontWeight.w700)),
+                    color: Appcolor.primary, fontWeight: FontWeight.w700)),
             const TextSpan(text: "with an average of "),
             TextSpan(
                 text: "2.4 ",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Appcolor.navy, fontWeight: FontWeight.w700)),
+                    color: Appcolor.primary, fontWeight: FontWeight.w700)),
             const TextSpan(text: "messages per day."),
           ],
         ),
@@ -69,10 +69,10 @@ class InfoTabbarView extends StatelessWidget {
       height: 10.h,
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        // color: Appcolor.navy.withOpacity(0.58),
-        color: Appcolor.navy,
+        // color: Appcolor.primary.withOpacity(0.58),
+        color: Appcolor.primary,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(width: 4, color: Appcolor.navy),
+        border: Border.all(width: 4, color: Appcolor.primary),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

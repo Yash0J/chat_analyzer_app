@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../widgets/body_text.dart';
-import '../widgets/description_text.dart';
+import '../widgets/title_text.dart';
 import 'color.dart';
 
 class GreyDivider extends StatelessWidget {
@@ -45,12 +45,12 @@ class StatsCard extends StatelessWidget {
       width: width ?? 41.w,
       height: height ?? 18.h,
       decoration: BoxDecoration(
-        // color: Appcolor.navy.withOpacity(0.),
+        // color: Appcolor.primary.withOpacity(0.),
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
             blurRadius: 3,
-            color: Appcolor.navy.withOpacity(0.05),
+            color: Appcolor.primary.withOpacity(0.05),
             offset: const Offset(0, 1),
           ),
         ],
@@ -63,7 +63,7 @@ class StatsCard extends StatelessWidget {
           TextBodyLarge(
             text: headText ?? "headText",
             textAlign: TextAlign.center,
-            color: Appcolor.navy,
+            color: Appcolor.primary,
             fontWeight: FontWeight.w700,
             size: 18,
           ),
@@ -85,36 +85,110 @@ class StatusTile extends StatelessWidget {
   const StatusTile({
     super.key,
     this.title,
-    this.children,
+    this.data,
+    this.titleColor,
+    this.dataColor,
+    this.titleFontWeight,
+    this.dataFontWeight,
+    this.titletextAlign,
+    this.dataTextAlign,
+    this.mainAxisAlignment,
+    this.crossAxisAlignment,
+    this.imageRadious,
+    this.image,
+    this.circleChild,
   });
 
+  final double? imageRadious;
+  final ImageProvider<Object>? image;
+  final Widget? circleChild;
+
+  final String? data;
   final String? title;
+
+  final Color? titleColor;
+  final Color? dataColor;
+
+  final FontWeight? titleFontWeight;
+  final FontWeight? dataFontWeight;
+
+  final TextAlign? titletextAlign;
+  final TextAlign? dataTextAlign;
+
+  final MainAxisAlignment? mainAxisAlignment;
+  final CrossAxisAlignment? crossAxisAlignment;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
+        crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            // maxRadius: 32,
+            radius: imageRadious ?? 26,
+            // minRadius: ,
+            backgroundColor: Appcolor.quaternary,
+            foregroundImage: image,
+            child: SizedBox(width: 50, height: 50, child: circleChild),
+          ),
+          SizedBox(width: 3.w),
+          TextTitleLarge(
+            text: title ?? "",
+            color: titleColor,
+            fontWeight: titleFontWeight,
+            textAlign: titletextAlign ?? TextAlign.left,
+          ),
+          const Spacer(),
+          TextTitleMedium(
+            text: data ?? "",
+            color: dataColor ?? Colors.black54,
+            fontWeight: dataFontWeight,
+            textAlign: dataTextAlign ?? TextAlign.right,
+            // size: 18,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ListContainer extends StatelessWidget {
+  const ListContainer({
+    super.key,
+    this.children,
+    this.radius,
+    this.width,
+  });
+
+  final double? width;
+  final double? radius;
   final List<Widget>? children;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          height: 10.h,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextDescriptionLarge(
-                text: title ?? "Most used words",
-                color: Appcolor.navy,
-                fontWeight: FontWeight.w700,
-              ),
-              if (children != null)
-                ...children!, // adds widgits from list<children> into children of column
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Container(
+        width: width,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+            color: Appcolor.white,
+            borderRadius: BorderRadius.circular(radius ?? 17),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 3,
+                  color: Appcolor.quaternary,
+                  offset: const Offset(0, 2)),
+            ]),
+        child: Column(
+          children: [
+            if (children != null) ...children!,
+          ],
         ),
-        const GreyDivider(),
-      ],
+      ),
     );
   }
 }

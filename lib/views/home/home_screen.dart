@@ -6,6 +6,7 @@ import '../../utils/constants/color.dart';
 import '../../utils/widgets/button.dart';
 import '../../utils/widgets/display_text.dart';
 import '../../utils/widgets/title_text.dart';
+import '../analyzed_page/analyzed.dart';
 import '../result/result_screen.dart';
 import 'importing_steps.dart';
 
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? _filePath;
+  // String? _filePath;  // used to show file path
 
   Future<void> _openFilePicker() async {
     try {
@@ -26,14 +27,14 @@ class _HomePageState extends State<HomePage> {
         allowedExtensions: ['txt'],
       );
 
-      if (result != null) {
-        setState(() {
-          _filePath = result.files.single.path;
-        });
-      }
+      // if (result != null) {  //// used to show file path
+      //   setState(() {
+      //     _filePath = result.files.single.path;
+      //   });
+      // }
       // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Result()));
+          context, MaterialPageRoute(builder: (context) => AnalyzedScreen()));
     } catch (e) {
       print('Error picking file: $e');
     }

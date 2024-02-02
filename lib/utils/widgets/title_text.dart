@@ -7,11 +7,13 @@ class TextTitleLarge extends StatelessWidget {
     this.color,
     this.textAlign,
     this.fontWeight,
+    this.overflow,
   });
   final String text;
   final Color? color;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class TextTitleLarge extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            overflow: TextOverflow.ellipsis,
+            overflow: overflow ?? TextOverflow.ellipsis,
             fontWeight: fontWeight,
             color: color,
           ),
@@ -34,11 +36,13 @@ class TextTitleMedium extends StatelessWidget {
     this.color,
     this.textAlign,
     this.fontWeight,
+    this.overflow,
   });
   final String text;
   final Color? color;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +50,7 @@ class TextTitleMedium extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            overflow: TextOverflow.ellipsis,
+            overflow: overflow ?? TextOverflow.ellipsis,
             fontWeight: fontWeight,
             color: color,
           ),
@@ -61,11 +65,13 @@ class TextTitleSmall extends StatelessWidget {
     this.color,
     this.textAlign,
     this.fontWeight,
+    this.overflow,
   });
   final String text;
   final Color? color;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +79,7 @@ class TextTitleSmall extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: Theme.of(context).textTheme.titleSmall?.copyWith(
-            overflow: TextOverflow.ellipsis,
+            overflow: overflow ?? TextOverflow.ellipsis,
             fontWeight: fontWeight,
             color: color,
           ),

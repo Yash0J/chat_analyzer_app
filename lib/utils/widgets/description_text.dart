@@ -5,13 +5,14 @@ class TextDescriptionLarge extends StatelessWidget {
     super.key,
     required this.text,
     this.color,
+    this.overflow,
     this.fontWeight,
     this.textAlign,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
-
+  final TextOverflow? overflow;
   final TextAlign? textAlign;
 
   @override
@@ -22,6 +23,7 @@ class TextDescriptionLarge extends StatelessWidget {
       style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontWeight: fontWeight,
             color: color,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }
@@ -32,13 +34,14 @@ class TextDescriptionMedium extends StatelessWidget {
     super.key,
     required this.text,
     this.color,
+    this.overflow,
     this.fontWeight,
     this.textAlign,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
-
+  final TextOverflow? overflow;
   final TextAlign? textAlign;
 
   @override
@@ -49,6 +52,7 @@ class TextDescriptionMedium extends StatelessWidget {
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
             fontWeight: fontWeight,
             color: color,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }
@@ -60,12 +64,13 @@ class TextDescriptionSmall extends StatelessWidget {
     required this.text,
     this.color,
     this.fontWeight,
+    this.overflow,
     this.textAlign,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
-
+  final TextOverflow? overflow;
   final TextAlign? textAlign;
 
   @override
@@ -76,6 +81,7 @@ class TextDescriptionSmall extends StatelessWidget {
       style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontWeight: fontWeight,
             color: color,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }

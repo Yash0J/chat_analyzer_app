@@ -26,7 +26,7 @@ class _GraphTabbarViewState extends State<GraphTabbarView> {
                 height: 90.w,
                 child: RadarChart(
                   RadarChartData(
-                    radarBackgroundColor: Appcolor.navy,
+                    radarBackgroundColor: Appcolor.primary,
                     radarShape: RadarShape.polygon,
                     radarBorderData:
                         BorderSide(width: 2, color: Appcolor.black),
@@ -35,15 +35,15 @@ class _GraphTabbarViewState extends State<GraphTabbarView> {
                     tickCount: 6,
                     tickBorderData: BorderSide(width: 1, color: Appcolor.black),
                     borderData: FlBorderData(
-                      border: Border.all(width: 2, color: Appcolor.navy),
+                      border: Border.all(width: 2, color: Appcolor.primary),
                     ),
                     dataSets: [
                       RadarDataSet(
                         dataEntries: [
-                          RadarEntry(value: 10),
-                          RadarEntry(value: 18),
-                          RadarEntry(value: 8),
-                          RadarEntry(value: 22),
+                          const RadarEntry(value: 10),
+                          const RadarEntry(value: 18),
+                          const RadarEntry(value: 8),
+                          const RadarEntry(value: 22),
                         ],
                       ),
                     ],
@@ -63,7 +63,7 @@ class _GraphTabbarViewState extends State<GraphTabbarView> {
                     // read about it in the PieChartData section
                   ),
                   swapAnimationDuration:
-                      Duration(milliseconds: 150), // Optional
+                      const Duration(milliseconds: 150), // Optional
                   swapAnimationCurve: Curves.linear, // Optional
                 )),
           ],

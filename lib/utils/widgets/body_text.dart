@@ -8,11 +8,13 @@ class TextBodyLarge extends StatelessWidget {
     this.textAlign,
     this.fontWeight,
     this.size,
+    this.overflow,
   });
   final String text;
   final Color? color;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final TextOverflow? overflow;
   final double? size;
 
   @override
@@ -21,7 +23,7 @@ class TextBodyLarge extends StatelessWidget {
       text,
       textAlign: textAlign,
       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            overflow: TextOverflow.ellipsis,
+            overflow: overflow ?? TextOverflow.ellipsis,
             fontWeight: fontWeight,
             fontSize: size,
             color: color,

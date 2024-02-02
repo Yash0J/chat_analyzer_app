@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../utils/constants/color.dart';
 import '../../utils/widgets/headline_text.dart';
 import '../analyzed_page/analyzed.dart';
 import 'tab_views/graph_view.dart';
 import 'tab_views/info_view.dart';
-import 'tab_views/stats-view.dart';
+import 'tab_views/stats_view.dart';
 
 class Result extends StatefulWidget {
   const Result({super.key});
@@ -26,8 +25,8 @@ class _ResultState extends State<Result> {
               text: 'diff " " Result page', color: Appcolor.white),
           actions: [
             IconButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AnalyzedScreen())),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AnalyzedScreen())),
               icon: const Icon(Icons.help_outline_rounded),
             ),
           ],
@@ -50,11 +49,8 @@ class _ResultState extends State<Result> {
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 3),
-            // color: Appcolor.grey,
             color: Appcolor.quaternary,
-            // color: Appcolor.navy,
             spreadRadius: 0,
-
             blurRadius: 3,
           )
         ],
@@ -72,10 +68,10 @@ class _ResultState extends State<Result> {
           indicatorSize: TabBarIndicatorSize.tab,
           labelPadding: const EdgeInsets.symmetric(horizontal: 20),
           splashBorderRadius: BorderRadius.circular(50),
-          indicatorColor: Appcolor.navy,
+          indicatorColor: Appcolor.primary,
           indicator: BoxDecoration(
-            // color: Appcolor.navy,
-            color: Appcolor.navy,
+            // color: Appcolor.primary,
+            color: Appcolor.primary,
             border:
                 Border.all(width: 2, color: Appcolor.white.withOpacity(0.5)),
             borderRadius: BorderRadius.circular(50),
@@ -95,7 +91,7 @@ class _ResultState extends State<Result> {
   }
 
   Widget tabBarView() {
-    return Expanded(
+    return const Expanded(
       child: TabBarView(
         children: [
           InfoTabbarView(),

@@ -14,6 +14,8 @@ class DefaultButton extends StatelessWidget {
     this.color,
     this.elevation,
     this.radius,
+    this.boderColor,
+    this.boderWidth,
   });
 
   final double? width;
@@ -21,8 +23,10 @@ class DefaultButton extends StatelessWidget {
   final void Function()? onTap;
   final Color? foregroundColor;
   final Color? color;
+  final Color? boderColor;
 
   final Widget? child;
+  final double? boderWidth;
   final double? elevation;
   final double? radius;
 
@@ -35,10 +39,14 @@ class DefaultButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(radius ?? 17),
         ),
         surfaceTintColor: Colors.transparent,
-        backgroundColor: color ?? Appcolor.navy,
-        foregroundColor: foregroundColor ?? Appcolor.white,
+        backgroundColor: color ?? Appcolor.primary,
+        foregroundColor: foregroundColor ?? Appcolor.blue,
         elevation: elevation ?? 0,
-        minimumSize: Size(width ?? 50.w, height ?? 8.h),
+        side: BorderSide(
+          width: boderWidth ?? 0,
+          color: boderColor ?? Appcolor.nocolor,
+        ),
+        minimumSize: Size(width ?? 40.w, height ?? 6.h),
         shadowColor: Appcolor.quaternary,
       ),
       child: child,

@@ -7,11 +7,13 @@ class TextLabelLarge extends StatelessWidget {
     this.color,
     this.fontWeight,
     this.textAlign,
+    this.overflow,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,7 @@ class TextLabelLarge extends StatelessWidget {
       style: Theme.of(context).textTheme.labelLarge?.copyWith(
             color: color,
             fontWeight: fontWeight,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }
@@ -33,11 +36,12 @@ class TextLabelMedium extends StatelessWidget {
     this.color,
     this.fontWeight,
     this.textAlign,
+    this.overflow,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
-
+  final TextOverflow? overflow;
   final TextAlign? textAlign;
 
   @override
@@ -48,6 +52,7 @@ class TextLabelMedium extends StatelessWidget {
       style: Theme.of(context).textTheme.labelMedium?.copyWith(
             color: color,
             fontWeight: fontWeight,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }
@@ -60,11 +65,12 @@ class TextLabelSmall extends StatelessWidget {
     this.color,
     this.fontWeight,
     this.textAlign,
+    this.overflow,
   });
   final Color? color;
   final String text;
   final FontWeight? fontWeight;
-
+  final TextOverflow? overflow;
   final TextAlign? textAlign;
 
   @override
@@ -75,6 +81,7 @@ class TextLabelSmall extends StatelessWidget {
       style: Theme.of(context).textTheme.labelSmall?.copyWith(
             color: color,
             fontWeight: fontWeight,
+            overflow: overflow ?? TextOverflow.ellipsis,
           ),
     );
   }

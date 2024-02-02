@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import '../../utils/widgets/body_text.dart';
 import '../../utils/widgets/description_text.dart';
 import '../../utils/widgets/title_text.dart';
 
